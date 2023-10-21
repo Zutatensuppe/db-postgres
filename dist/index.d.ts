@@ -22,13 +22,12 @@ interface Where {
 }
 type Row = Record<string, unknown>;
 declare class Db {
-    patchesDir: string;
     dbh: pg.Client;
     inTransaction: boolean;
-    constructor(connectStr: string, patchesDir: string);
+    constructor(connectString: string);
     connect(): Promise<void>;
     close(): Promise<void>;
-    patch(verbose?: boolean): Promise<void>;
+    patch(pathToPatchesDir: string, verbose?: boolean): Promise<void>;
     _buildWhere(where: WhereRaw, $i?: number): Where;
     _buildOrderBy(orderBy: OrderBy): string;
     _buildLimit(limit: Limit): string;

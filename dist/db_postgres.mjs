@@ -9,19 +9,19 @@ var xt = function(r, e, t, s) {
     function u(a) {
       try {
         l(s.next(a));
-      } catch (c) {
-        o(c);
+      } catch (h) {
+        o(h);
       }
     }
-    function h(a) {
+    function c(a) {
       try {
         l(s.throw(a));
-      } catch (c) {
-        o(c);
+      } catch (h) {
+        o(h);
       }
     }
     function l(a) {
-      a.done ? i(a.value) : n(a.value).then(u, h);
+      a.done ? i(a.value) : n(a.value).then(u, c);
     }
     l((s = s.apply(r, e || [])).next());
   });
@@ -103,19 +103,19 @@ var Ot = function(r, e, t, s) {
     function u(a) {
       try {
         l(s.next(a));
-      } catch (c) {
-        o(c);
+      } catch (h) {
+        o(h);
       }
     }
-    function h(a) {
+    function c(a) {
       try {
         l(s.throw(a));
-      } catch (c) {
-        o(c);
+      } catch (h) {
+        o(h);
       }
     }
     function l(a) {
-      a.done ? i(a.value) : n(a.value).then(u, h);
+      a.done ? i(a.value) : n(a.value).then(u, c);
     }
     l((s = s.apply(r, e || [])).next());
   });
@@ -247,10 +247,10 @@ var Qt = xe, ut = {
     return Ut(e) || null;
   var s = !!t[8], n = parseInt(t[1], 10);
   s && (n = ct(n));
-  var i = parseInt(t[2], 10) - 1, o = t[3], u = parseInt(t[4], 10), h = parseInt(t[5], 10), l = parseInt(t[6], 10), a = t[7];
+  var i = parseInt(t[2], 10) - 1, o = t[3], u = parseInt(t[4], 10), c = parseInt(t[5], 10), l = parseInt(t[6], 10), a = t[7];
   a = a ? 1e3 * parseFloat(a) : 0;
-  var c, f = Gt(e);
-  return f != null ? (c = new Date(Date.UTC(n, i, o, u, h, l, a)), Pe(n) && c.setUTCFullYear(n), f !== 0 && c.setTime(c.getTime() - f)) : (c = new Date(n, i, o, u, h, l, a), Pe(n) && c.setFullYear(n)), c;
+  var h, f = Gt(e);
+  return f != null ? (h = new Date(Date.UTC(n, i, o, u, c, l, a)), Pe(n) && h.setUTCFullYear(n), f !== 0 && h.setTime(h.getTime() - f)) : (h = new Date(n, i, o, u, c, l, a), Pe(n) && h.setFullYear(n)), h;
 };
 function Ut(r) {
   var e = Ft.exec(r);
@@ -449,27 +449,27 @@ var fr = function(r) {
 function _r(r) {
   var e = r.readInt32BE(0), t = r.readUInt32BE(4), s = "";
   e < 0 && (e = ~e + (t === 0), t = ~t + 1 >>> 0, s = "-");
-  var n = "", i, o, u, h, l, a;
+  var n = "", i, o, u, c, l, a;
   {
     if (i = e % O, e = e / O >>> 0, o = 4294967296 * i + t, t = o / O >>> 0, u = "" + (o - O * t), t === 0 && e === 0)
       return s + u + n;
-    for (h = "", l = 6 - u.length, a = 0; a < l; a++)
-      h += "0";
-    n = h + u + n;
+    for (c = "", l = 6 - u.length, a = 0; a < l; a++)
+      c += "0";
+    n = c + u + n;
   }
   {
     if (i = e % O, e = e / O >>> 0, o = 4294967296 * i + t, t = o / O >>> 0, u = "" + (o - O * t), t === 0 && e === 0)
       return s + u + n;
-    for (h = "", l = 6 - u.length, a = 0; a < l; a++)
-      h += "0";
-    n = h + u + n;
+    for (c = "", l = 6 - u.length, a = 0; a < l; a++)
+      c += "0";
+    n = c + u + n;
   }
   {
     if (i = e % O, e = e / O >>> 0, o = 4294967296 * i + t, t = o / O >>> 0, u = "" + (o - O * t), t === 0 && e === 0)
       return s + u + n;
-    for (h = "", l = 6 - u.length, a = 0; a < l; a++)
-      h += "0";
-    n = h + u + n;
+    for (c = "", l = 6 - u.length, a = 0; a < l; a++)
+      c += "0";
+    n = c + u + n;
   }
   return i = e % O, o = 4294967296 * i + t, u = "" + o % O, s + u + n;
 }
@@ -479,25 +479,25 @@ var wr = _r, gr = wr, g = function(r, e, t, s, n) {
   };
   var i = t >> 3, o = function(d) {
     return s ? ~d & 255 : d;
-  }, u = 255, h = 8 - t % 8;
-  e < h && (u = 255 << 8 - e & 255, h = e), t && (u = u >> t % 8);
+  }, u = 255, c = 8 - t % 8;
+  e < c && (u = 255 << 8 - e & 255, c = e), t && (u = u >> t % 8);
   var l = 0;
-  t % 8 + e >= 8 && (l = n(0, o(r[i]) & u, h));
-  for (var a = e + t >> 3, c = i + 1; c < a; c++)
-    l = n(l, o(r[c]), 8);
+  t % 8 + e >= 8 && (l = n(0, o(r[i]) & u, c));
+  for (var a = e + t >> 3, h = i + 1; h < a; h++)
+    l = n(l, o(r[h]), 8);
   var f = (e + t) % 8;
   return f > 0 && (l = n(l, o(r[a]) >> 8 - f, f)), l;
 }, pt = function(r, e, t) {
   var s = Math.pow(2, t - 1) - 1, n = g(r, 1), i = g(r, t, 1);
   if (i === 0)
     return 0;
-  var o = 1, u = function(l, a, c) {
+  var o = 1, u = function(l, a, h) {
     l === 0 && (l = 1);
-    for (var f = 1; f <= c; f++)
-      o /= 2, (a & 1 << c - f) > 0 && (l += o);
+    for (var f = 1; f <= h; f++)
+      o /= 2, (a & 1 << h - f) > 0 && (l += o);
     return l;
-  }, h = g(r, e, t + 1, !1, u);
-  return i == Math.pow(2, t + 1) - 1 ? h === 0 ? n === 0 ? 1 / 0 : -1 / 0 : NaN : (n === 0 ? 1 : -1) * Math.pow(2, i - s) * h;
+  }, c = g(r, e, t + 1, !1, u);
+  return i == Math.pow(2, t + 1) - 1 ? c === 0 ? n === 0 ? 1 / 0 : -1 / 0 : NaN : (n === 0 ? 1 : -1) * Math.pow(2, i - s) * c;
 }, br = function(r) {
   return g(r, 1) == 1 ? -1 * (g(r, 15, 1, !0) + 1) : g(r, 15, 1);
 }, Ne = function(r) {
@@ -528,26 +528,26 @@ var wr = _r, gr = wr, g = function(r, e, t, s, n) {
   g(r, 32, 32);
   for (var t = g(r, 32, 64), s = 96, n = [], i = 0; i < e; i++)
     n[i] = g(r, 32, s), s += 32, s += 32;
-  var o = function(h) {
+  var o = function(c) {
     var l = g(r, 32, s);
     if (s += 32, l == 4294967295)
       return null;
     var a;
-    if (h == 23 || h == 20)
+    if (c == 23 || c == 20)
       return a = g(r, l * 8, s), s += l * 8, a;
-    if (h == 25)
+    if (c == 25)
       return a = r.toString(this.encoding, s >> 3, (s += l << 3) >> 3), a;
-    console.log("ERROR: ElementType not implemented: " + h);
-  }, u = function(h, l) {
-    var a = [], c;
-    if (h.length > 1) {
-      var f = h.shift();
-      for (c = 0; c < f; c++)
-        a[c] = u(h, l);
-      h.unshift(f);
+    console.log("ERROR: ElementType not implemented: " + c);
+  }, u = function(c, l) {
+    var a = [], h;
+    if (c.length > 1) {
+      var f = c.shift();
+      for (h = 0; h < f; h++)
+        a[h] = u(c, l);
+      c.unshift(f);
     } else
-      for (c = 0; c < h[0]; c++)
-        a[c] = o(l);
+      for (h = 0; h < c[0]; h++)
+        a[h] = o(l);
     return a;
   };
   return u(n, t);
@@ -773,8 +773,8 @@ function Gr() {
   function e(o) {
     return r.createHash("md5").update(o, "utf-8").digest("hex");
   }
-  function t(o, u, h) {
-    var l = e(u + o), a = e(Buffer.concat([Buffer.from(l), h]));
+  function t(o, u, c) {
+    var l = e(u + o), a = e(Buffer.concat([Buffer.from(l), c]));
     return "md5" + a;
   }
   function s(o) {
@@ -783,8 +783,8 @@ function Gr() {
   function n(o, u) {
     return r.createHmac("sha256", o).update(u).digest();
   }
-  async function i(o, u, h) {
-    return r.pbkdf2Sync(o, u, h, 32, "sha256");
+  async function i(o, u, c) {
+    return r.pbkdf2Sync(o, u, c, 32, "sha256");
   }
   return me = {
     postgresMd5PasswordHash: t,
@@ -806,7 +806,7 @@ function Wr() {
     randomBytes: n,
     deriveKey: l,
     sha256: u,
-    hmacSha256: h,
+    hmacSha256: c,
     md5: i
   };
   const e = r.webcrypto || globalThis.crypto, t = e.subtle, s = new TextEncoder();
@@ -821,19 +821,19 @@ function Wr() {
       return Array.from(new Uint8Array(d)).map((m) => m.toString(16).padStart(2, "0")).join("");
     }
   }
-  async function o(a, c, f) {
-    var d = await i(c + a), m = await i(Buffer.concat([Buffer.from(d), f]));
+  async function o(a, h, f) {
+    var d = await i(h + a), m = await i(Buffer.concat([Buffer.from(d), f]));
     return "md5" + m;
   }
   async function u(a) {
     return await t.digest("SHA-256", a);
   }
-  async function h(a, c) {
+  async function c(a, h) {
     const f = await t.importKey("raw", a, { name: "HMAC", hash: "SHA-256" }, !1, ["sign"]);
-    return await t.sign("HMAC", f, s.encode(c));
+    return await t.sign("HMAC", f, s.encode(h));
   }
-  async function l(a, c, f) {
-    const d = await t.importKey("raw", s.encode(a), "PBKDF2", !1, ["deriveBits"]), m = { name: "PBKDF2", hash: "SHA-256", salt: c, iterations: f };
+  async function l(a, h, f) {
+    const d = await t.importKey("raw", s.encode(a), "PBKDF2", !1, ["deriveBits"]), m = { name: "PBKDF2", hash: "SHA-256", salt: h, iterations: f };
     return await t.deriveBits(m, d, 32 * 8, ["deriveBits"]);
   }
   return ye;
@@ -868,7 +868,7 @@ async function Vr(r, e, t) {
       throw new Error("SASL: SCRAM-SERVER-FIRST-MESSAGE: server nonce is too short");
   } else
     throw new Error("SASL: SCRAM-SERVER-FIRST-MESSAGE: server nonce does not start with client nonce");
-  var n = "n=*,r=" + r.clientNonce, i = "r=" + s.nonce + ",s=" + s.salt + ",i=" + s.iteration, o = "c=biws,r=" + s.nonce, u = n + "," + i + "," + o, h = Buffer.from(s.salt, "base64"), l = await F.deriveKey(e, h, s.iteration), a = await F.hmacSha256(l, "Client Key"), c = await F.sha256(a), f = await F.hmacSha256(c, u), d = Xr(Buffer.from(a), Buffer.from(f)).toString("base64"), m = await F.hmacSha256(l, "Server Key"), y = await F.hmacSha256(m, u);
+  var n = "n=*,r=" + r.clientNonce, i = "r=" + s.nonce + ",s=" + s.salt + ",i=" + s.iteration, o = "c=biws,r=" + s.nonce, u = n + "," + i + "," + o, c = Buffer.from(s.salt, "base64"), l = await F.deriveKey(e, c, s.iteration), a = await F.hmacSha256(l, "Client Key"), h = await F.sha256(a), f = await F.hmacSha256(h, u), d = Xr(Buffer.from(a), Buffer.from(f)).toString("base64"), m = await F.hmacSha256(l, "Server Key"), y = await F.hmacSha256(m, u);
   r.message = "SASLResponse", r.serverSignature = Buffer.from(y).toString("base64"), r.response = o + ",p=" + d;
 }
 function zr(r, e) {
@@ -1550,8 +1550,8 @@ class rn {
     for (; n + ze <= s; ) {
       const i = this.buffer[n], o = this.buffer.readUInt32BE(n + Re), u = Re + o;
       if (u + n <= s) {
-        const h = this.handlePacket(n + ze, i, o, this.buffer);
-        t(h), n += u;
+        const c = this.handlePacket(n + ze, i, o, this.buffer);
+        t(c), n += u;
       } else
         break;
     }
@@ -1649,8 +1649,8 @@ class rn {
   parseCopyMessage(e, t, s, n) {
     this.reader.setBuffer(e, s);
     const i = this.reader.byte() !== 0, o = this.reader.int16(), u = new S.CopyResponse(t, n, i, o);
-    for (let h = 0; h < o; h++)
-      u.columnTypes[h] = this.reader.int16();
+    for (let c = 0; c < o; c++)
+      u.columnTypes[c] = this.reader.int16();
     return u;
   }
   parseNotificationMessage(e, t, s) {
@@ -1738,8 +1738,8 @@ class rn {
     let o = this.reader.string(1);
     for (; o !== "\0"; )
       i[o] = this.reader.cstring(), o = this.reader.string(1);
-    const u = i.M, h = n === "notice" ? new S.NoticeMessage(t, u) : new S.DatabaseError(u, t, n);
-    return h.severity = i.S, h.code = i.C, h.detail = i.D, h.hint = i.H, h.position = i.P, h.internalPosition = i.p, h.internalQuery = i.q, h.where = i.W, h.schema = i.s, h.table = i.t, h.column = i.c, h.dataType = i.d, h.constraint = i.n, h.file = i.F, h.line = i.L, h.routine = i.R, h;
+    const u = i.M, c = n === "notice" ? new S.NoticeMessage(t, u) : new S.DatabaseError(u, t, n);
+    return c.severity = i.S, c.code = i.C, c.detail = i.D, c.hint = i.H, c.position = i.P, c.internalPosition = i.p, c.internalQuery = i.q, c.where = i.W, c.schema = i.s, c.table = i.t, c.column = i.c, c.dataType = i.d, c.constraint = i.n, c.file = i.F, c.line = i.L, c.routine = i.R, c;
   }
 }
 oe.Parser = rn;
@@ -1756,7 +1756,7 @@ oe.Parser = rn;
   const s = oe;
   function n(i, o) {
     const u = new s.Parser();
-    return i.on("data", (h) => u.parse(h, o)), new Promise((h) => i.on("end", () => h()));
+    return i.on("data", (c) => u.parse(c, o)), new Promise((c) => i.on("end", () => c()));
   }
   r.parse = n;
 })(Le);
@@ -1814,8 +1814,8 @@ let pn = class extends on {
         socket: s.stream
       };
       s.ssl !== !0 && (Object.assign(u, s.ssl), "key" in s.ssl && (u.key = s.ssl.key));
-      var h = E;
-      h.isIP && h.isIP(t) === 0 && (u.servername = t);
+      var c = E;
+      c.isIP && c.isIP(t) === 0 && (u.servername = t);
       try {
         s.stream = hn(u);
       } catch (l) {
@@ -1909,11 +1909,11 @@ function mn() {
     return _e;
   Je = 1;
   const { Transform: r } = E, { StringDecoder: e } = E, t = Symbol("last"), s = Symbol("decoder");
-  function n(l, a, c) {
+  function n(l, a, h) {
     let f;
     if (this.overflow) {
       if (f = this[s].write(l).split(this.matcher), f.length === 1)
-        return c();
+        return h();
       f.shift(), this.overflow = !1;
     } else
       this[t] += this[s].write(l), f = this[t].split(this.matcher);
@@ -1922,13 +1922,13 @@ function mn() {
       try {
         o(this, this.mapper(f[d]));
       } catch (m) {
-        return c(m);
+        return h(m);
       }
     if (this.overflow = this[t].length > this.maxLength, this.overflow && !this.skipOverflow) {
-      c(new Error("maximum buffer reached"));
+      h(new Error("maximum buffer reached"));
       return;
     }
-    c();
+    h();
   }
   function i(l) {
     if (this[t] += this[s].end(), this[t])
@@ -1945,28 +1945,28 @@ function mn() {
   function u(l) {
     return l;
   }
-  function h(l, a, c) {
-    switch (l = l || /\r?\n/, a = a || u, c = c || {}, arguments.length) {
+  function c(l, a, h) {
+    switch (l = l || /\r?\n/, a = a || u, h = h || {}, arguments.length) {
       case 1:
-        typeof l == "function" ? (a = l, l = /\r?\n/) : typeof l == "object" && !(l instanceof RegExp) && !l[Symbol.split] && (c = l, l = /\r?\n/);
+        typeof l == "function" ? (a = l, l = /\r?\n/) : typeof l == "object" && !(l instanceof RegExp) && !l[Symbol.split] && (h = l, l = /\r?\n/);
         break;
       case 2:
-        typeof l == "function" ? (c = a, a = l, l = /\r?\n/) : typeof a == "object" && (c = a, a = u);
+        typeof l == "function" ? (h = a, a = l, l = /\r?\n/) : typeof a == "object" && (h = a, a = u);
     }
-    c = Object.assign({}, c), c.autoDestroy = !0, c.transform = n, c.flush = i, c.readableObjectMode = !0;
-    const f = new r(c);
-    return f[t] = "", f[s] = new e("utf8"), f.matcher = l, f.mapper = a, f.maxLength = c.maxLength, f.skipOverflow = c.skipOverflow || !1, f.overflow = !1, f._destroy = function(d, m) {
+    h = Object.assign({}, h), h.autoDestroy = !0, h.transform = n, h.flush = i, h.readableObjectMode = !0;
+    const f = new r(h);
+    return f[t] = "", f[s] = new e("utf8"), f.matcher = l, f.mapper = a, f.maxLength = h.maxLength, f.skipOverflow = h.skipOverflow || !1, f.overflow = !1, f._destroy = function(d, m) {
       this._writableState.errorEmitted = !1, m(d);
     }, f;
   }
-  return _e = h, _e;
+  return _e = c, _e;
 }
 var Ze;
 function yn() {
   return Ze || (Ze = 1, function(r) {
-    var e = E, t = E.Stream, s = mn(), n = E, i = 5432, o = process.platform === "win32", u = process.stderr, h = 56, l = 7, a = 61440, c = 32768;
+    var e = E, t = E.Stream, s = mn(), n = E, i = 5432, o = process.platform === "win32", u = process.stderr, c = 56, l = 7, a = 61440, h = 32768;
     function f(_) {
-      return (_ & a) == c;
+      return (_ & a) == h;
     }
     var d = ["host", "port", "database", "user", "password"], m = d.length, y = d[m - 1];
     function v() {
@@ -1991,7 +1991,7 @@ function yn() {
       var w = _ || process.env, A = w.PGPASSFILE || (o ? e.join(w.APPDATA || "./", "postgresql", "pgpass.conf") : e.join(w.HOME || "./", ".pgpass"));
       return A;
     }, r.exports.usePgPass = function(_, w) {
-      return Object.prototype.hasOwnProperty.call(process.env, "PGPASSWORD") ? !1 : o ? !0 : (w = w || "<unkn>", f(_.mode) ? _.mode & (h | l) ? (v('WARNING: password file "%s" has group or world access; permissions should be u=rw (0600) or less', w), !1) : !0 : (v('WARNING: password file "%s" is not a plain file', w), !1));
+      return Object.prototype.hasOwnProperty.call(process.env, "PGPASSWORD") ? !1 : o ? !0 : (w = w || "<unkn>", f(_.mode) ? _.mode & (c | l) ? (v('WARNING: password file "%s" has group or world access; permissions should be u=rw (0600) or less', w), !1) : !0 : (v('WARNING: password file "%s" is not a plain file', w), !1));
     };
     var R = r.exports.match = function(_, w) {
       return d.slice(0, -1).reduce(function(A, x, B) {
@@ -2313,23 +2313,23 @@ let Pt = class extends _n {
         this.hasExecuted && (this.activeQuery = null, this.emit("drain"));
   }
   query(e, t, s) {
-    var n, i, o, u, h;
+    var n, i, o, u, c;
     if (e == null)
       throw new TypeError("Client was passed a null or undefined query");
     return typeof e.submit == "function" ? (o = e.query_timeout || this.connectionParameters.query_timeout, i = n = e, typeof t == "function" && (n.callback = n.callback || t)) : (o = this.connectionParameters.query_timeout, n = new Ct(e, t, s), n.callback || (i = new this._Promise((l, a) => {
-      n.callback = (c, f) => c ? a(c) : l(f);
+      n.callback = (h, f) => h ? a(h) : l(f);
     }).catch((l) => {
       throw Error.captureStackTrace(l), l;
-    }))), o && (h = n.callback, u = setTimeout(() => {
+    }))), o && (c = n.callback, u = setTimeout(() => {
       var l = new Error("Query read timeout");
       process.nextTick(() => {
         n.handleError(l, this.connection);
-      }), h(l), n.callback = () => {
+      }), c(l), n.callback = () => {
       };
       var a = this.queryQueue.indexOf(n);
       a > -1 && this.queryQueue.splice(a, 1), this._pulseQueryQueue();
     }, o), n.callback = (l, a) => {
-      clearTimeout(u), h(l, a);
+      clearTimeout(u), c(l, a);
     }), this.binary && !n.binary && (n.binary = !0), n._result && !n._result._types && (n._result._types = this._types), this._queryable ? this._ending ? (process.nextTick(() => {
       n.handleError(new Error("Client was closed and is not queryable"), this.connection);
     }), i) : (this.queryQueue.push(n), this._pulseQueryQueue(), i) : (process.nextTick(() => {
@@ -2364,12 +2364,12 @@ function Pn() {
   tt = 1;
   const r = E.EventEmitter, e = function() {
   }, t = (l, a) => {
-    const c = l.findIndex(a);
-    return c === -1 ? void 0 : l.splice(c, 1)[0];
+    const h = l.findIndex(a);
+    return h === -1 ? void 0 : l.splice(h, 1)[0];
   };
   class s {
-    constructor(a, c, f) {
-      this.client = a, this.idleListener = c, this.timeoutId = f;
+    constructor(a, h, f) {
+      this.client = a, this.idleListener = h, this.timeoutId = f;
     }
   }
   class n {
@@ -2383,25 +2383,25 @@ function Pn() {
   function o(l, a) {
     if (a)
       return { callback: a, result: void 0 };
-    let c, f;
+    let h, f;
     const d = function(y, v) {
-      y ? c(y) : f(v);
+      y ? h(y) : f(v);
     }, m = new l(function(y, v) {
-      f = y, c = v;
+      f = y, h = v;
     }).catch((y) => {
       throw Error.captureStackTrace(y), y;
     });
     return { callback: d, result: m };
   }
   function u(l, a) {
-    return function c(f) {
-      f.client = a, a.removeListener("error", c), a.on("error", () => {
+    return function h(f) {
+      f.client = a, a.removeListener("error", h), a.on("error", () => {
         l.log("additional client error after disconnection due to error", f);
       }), l._remove(a), l.emit("error", f, a);
     };
   }
-  class h extends r {
-    constructor(a, c) {
+  class c extends r {
+    constructor(a, h) {
       super(), this.options = Object.assign({}, a), a != null && "password" in a && Object.defineProperty(this.options, "password", {
         configurable: !0,
         enumerable: !1,
@@ -2410,7 +2410,7 @@ function Pn() {
       }), a != null && a.ssl && a.ssl.key && Object.defineProperty(this.options.ssl, "key", {
         enumerable: !1
       }), this.options.max = this.options.max || this.options.poolSize || 10, this.options.maxUses = this.options.maxUses || 1 / 0, this.options.allowExitOnIdle = this.options.allowExitOnIdle || !1, this.options.maxLifetimeSeconds = this.options.maxLifetimeSeconds || 0, this.log = this.options.log || function() {
-      }, this.Client = this.options.Client || c || Mt().Client, this.Promise = this.options.Promise || H.Promise, typeof this.options.idleTimeoutMillis > "u" && (this.options.idleTimeoutMillis = 1e4), this._clients = [], this._idle = [], this._expired = /* @__PURE__ */ new WeakSet(), this._pendingQueue = [], this._endCallback = void 0, this.ending = !1, this.ended = !1;
+      }, this.Client = this.options.Client || h || Mt().Client, this.Promise = this.options.Promise || H.Promise, typeof this.options.idleTimeoutMillis > "u" && (this.options.idleTimeoutMillis = 1e4), this._clients = [], this._idle = [], this._expired = /* @__PURE__ */ new WeakSet(), this._pendingQueue = [], this._endCallback = void 0, this.ending = !1, this.ended = !1;
     }
     _isFull() {
       return this._clients.length >= this.options.max;
@@ -2421,8 +2421,8 @@ function Pn() {
         return;
       }
       if (this.ending) {
-        this.log("pulse queue on ending"), this._idle.length && this._idle.slice().map((c) => {
-          this._remove(c.client);
+        this.log("pulse queue on ending"), this._idle.length && this._idle.slice().map((h) => {
+          this._remove(h.client);
         }), this._clients.length || (this.ended = !0, this._endCallback());
         return;
       }
@@ -2434,11 +2434,11 @@ function Pn() {
         return;
       const a = this._pendingQueue.shift();
       if (this._idle.length) {
-        const c = this._idle.pop();
-        clearTimeout(c.timeoutId);
-        const f = c.client;
+        const h = this._idle.pop();
+        clearTimeout(h.timeoutId);
+        const f = h.client;
         f.ref && f.ref();
-        const d = c.idleListener;
+        const d = h.idleListener;
         return this._acquireClient(f, a, d, !1);
       }
       if (!this._isFull())
@@ -2446,73 +2446,73 @@ function Pn() {
       throw new Error("unexpected condition");
     }
     _remove(a) {
-      const c = t(this._idle, (f) => f.client === a);
-      c !== void 0 && clearTimeout(c.timeoutId), this._clients = this._clients.filter((f) => f !== a), a.end(), this.emit("remove", a);
+      const h = t(this._idle, (f) => f.client === a);
+      h !== void 0 && clearTimeout(h.timeoutId), this._clients = this._clients.filter((f) => f !== a), a.end(), this.emit("remove", a);
     }
     connect(a) {
       if (this.ending) {
         const d = new Error("Cannot use a pool after calling end on the pool");
         return a ? a(d) : this.Promise.reject(d);
       }
-      const c = o(this.Promise, a), f = c.result;
+      const h = o(this.Promise, a), f = h.result;
       if (this._isFull() || this._idle.length) {
         if (this._idle.length && process.nextTick(() => this._pulseQueue()), !this.options.connectionTimeoutMillis)
-          return this._pendingQueue.push(new n(c.callback)), f;
+          return this._pendingQueue.push(new n(h.callback)), f;
         const d = (v, R, P) => {
-          clearTimeout(y), c.callback(v, R, P);
+          clearTimeout(y), h.callback(v, R, P);
         }, m = new n(d), y = setTimeout(() => {
-          t(this._pendingQueue, (v) => v.callback === d), m.timedOut = !0, c.callback(new Error("timeout exceeded when trying to connect"));
+          t(this._pendingQueue, (v) => v.callback === d), m.timedOut = !0, h.callback(new Error("timeout exceeded when trying to connect"));
         }, this.options.connectionTimeoutMillis);
         return this._pendingQueue.push(m), f;
       }
-      return this.newClient(new n(c.callback)), f;
+      return this.newClient(new n(h.callback)), f;
     }
     newClient(a) {
-      const c = new this.Client(this.options);
-      this._clients.push(c);
-      const f = u(this, c);
+      const h = new this.Client(this.options);
+      this._clients.push(h);
+      const f = u(this, h);
       this.log("checking client timeout");
       let d, m = !1;
       this.options.connectionTimeoutMillis && (d = setTimeout(() => {
-        this.log("ending client due to timeout"), m = !0, c.connection ? c.connection.stream.destroy() : c.end();
-      }, this.options.connectionTimeoutMillis)), this.log("connecting new client"), c.connect((y) => {
-        if (d && clearTimeout(d), c.on("error", f), y)
-          this.log("client failed to connect", y), this._clients = this._clients.filter((v) => v !== c), m && (y.message = "Connection terminated due to connection timeout"), this._pulseQueue(), a.timedOut || a.callback(y, void 0, e);
+        this.log("ending client due to timeout"), m = !0, h.connection ? h.connection.stream.destroy() : h.end();
+      }, this.options.connectionTimeoutMillis)), this.log("connecting new client"), h.connect((y) => {
+        if (d && clearTimeout(d), h.on("error", f), y)
+          this.log("client failed to connect", y), this._clients = this._clients.filter((v) => v !== h), m && (y.message = "Connection terminated due to connection timeout"), this._pulseQueue(), a.timedOut || a.callback(y, void 0, e);
         else {
           if (this.log("new client connected"), this.options.maxLifetimeSeconds !== 0) {
             const v = setTimeout(() => {
-              this.log("ending client due to expired lifetime"), this._expired.add(c), this._idle.findIndex((P) => P.client === c) !== -1 && this._acquireClient(
-                c,
+              this.log("ending client due to expired lifetime"), this._expired.add(h), this._idle.findIndex((P) => P.client === h) !== -1 && this._acquireClient(
+                h,
                 new n((P, Y, _) => _()),
                 f,
                 !1
               );
             }, this.options.maxLifetimeSeconds * 1e3);
-            v.unref(), c.once("end", () => clearTimeout(v));
+            v.unref(), h.once("end", () => clearTimeout(v));
           }
-          return this._acquireClient(c, a, f, !0);
+          return this._acquireClient(h, a, f, !0);
         }
       });
     }
     // acquire a client for a pending work item
-    _acquireClient(a, c, f, d) {
-      d && this.emit("connect", a), this.emit("acquire", a), a.release = this._releaseOnce(a, f), a.removeListener("error", f), c.timedOut ? d && this.options.verify ? this.options.verify(a, a.release) : a.release() : d && this.options.verify ? this.options.verify(a, (m) => {
+    _acquireClient(a, h, f, d) {
+      d && this.emit("connect", a), this.emit("acquire", a), a.release = this._releaseOnce(a, f), a.removeListener("error", f), h.timedOut ? d && this.options.verify ? this.options.verify(a, a.release) : a.release() : d && this.options.verify ? this.options.verify(a, (m) => {
         if (m)
-          return a.release(m), c.callback(m, void 0, e);
-        c.callback(void 0, a, a.release);
-      }) : c.callback(void 0, a, a.release);
+          return a.release(m), h.callback(m, void 0, e);
+        h.callback(void 0, a, a.release);
+      }) : h.callback(void 0, a, a.release);
     }
     // returns a function that wraps _release and throws if called more than once
-    _releaseOnce(a, c) {
+    _releaseOnce(a, h) {
       let f = !1;
       return (d) => {
-        f && i(), f = !0, this._release(a, c, d);
+        f && i(), f = !0, this._release(a, h, d);
       };
     }
     // release a client back to the poll, include an error
     // to remove it from the pool
-    _release(a, c, f) {
-      if (a.on("error", c), a._poolUseCount = (a._poolUseCount || 0) + 1, this.emit("release", f, a), f || this.ending || !a._queryable || a._ending || a._poolUseCount >= this.options.maxUses) {
+    _release(a, h, f) {
+      if (a.on("error", h), a._poolUseCount = (a._poolUseCount || 0) + 1, this.emit("release", f, a), f || this.ending || !a._queryable || a._ending || a._poolUseCount >= this.options.maxUses) {
         a._poolUseCount >= this.options.maxUses && this.log("remove expended client"), this._remove(a), this._pulseQueue();
         return;
       }
@@ -2523,16 +2523,16 @@ function Pn() {
       let m;
       this.options.idleTimeoutMillis && (m = setTimeout(() => {
         this.log("remove idle client"), this._remove(a);
-      }, this.options.idleTimeoutMillis), this.options.allowExitOnIdle && m.unref()), this.options.allowExitOnIdle && a.unref(), this._idle.push(new s(a, c, m)), this._pulseQueue();
+      }, this.options.idleTimeoutMillis), this.options.allowExitOnIdle && m.unref()), this.options.allowExitOnIdle && a.unref(), this._idle.push(new s(a, h, m)), this._pulseQueue();
     }
-    query(a, c, f) {
+    query(a, h, f) {
       if (typeof a == "function") {
         const m = o(this.Promise, a);
         return setImmediate(function() {
           return m.callback(new Error("Passing a function as the first parameter to pool.query is not supported"));
         }), m.result;
       }
-      typeof c == "function" && (f = c, c = void 0);
+      typeof h == "function" && (f = h, h = void 0);
       const d = o(this.Promise, f);
       return f = d.callback, this.connect((m, y) => {
         if (m)
@@ -2543,7 +2543,7 @@ function Pn() {
         };
         y.once("error", R), this.log("dispatching query");
         try {
-          y.query(a, c, (P, Y) => {
+          y.query(a, h, (P, Y) => {
             if (this.log("query dispatched"), y.removeListener("error", R), !v)
               return v = !0, y.release(P), P ? f(P) : f(void 0, Y);
           });
@@ -2558,8 +2558,8 @@ function Pn() {
         return a ? a(f) : this.Promise.reject(f);
       }
       this.ending = !0;
-      const c = o(this.Promise, a);
-      return this._endCallback = c.callback, this._pulseQueue(), c.result;
+      const h = o(this.Promise, a);
+      return this._endCallback = h.callback, this._pulseQueue(), h.result;
     }
     get waitingCount() {
       return this._pendingQueue.length;
@@ -2568,13 +2568,13 @@ function Pn() {
       return this._idle.length;
     }
     get expiredCount() {
-      return this._clients.reduce((a, c) => a + (this._expired.has(c) ? 1 : 0), 0);
+      return this._clients.reduce((a, h) => a + (this._expired.has(h) ? 1 : 0), 0);
     }
     get totalCount() {
       return this._clients.length;
     }
   }
-  return ge = h, ge;
+  return ge = c, ge;
 }
 var be = { exports: {} };
 const Mn = {}, Tn = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -2589,8 +2589,8 @@ function An() {
   var r = E.EventEmitter, e = E, t = re, s = Se.exports = function(i, o, u) {
     r.call(this), i = t.normalizeQueryConfig(i, o, u), this.text = i.text, this.values = i.values, this.name = i.name, this.callback = i.callback, this.state = "new", this._arrayMode = i.rowMode === "array", this._emitRowEvents = !1, this.on(
       "newListener",
-      (function(h) {
-        h === "row" && (this._emitRowEvents = !0);
+      (function(c) {
+        c === "row" && (this._emitRowEvents = !0);
       }).bind(this)
     );
   };
@@ -2614,8 +2614,8 @@ function An() {
     var o = this.native.pq.resultErrorFields();
     if (o)
       for (var u in o) {
-        var h = n[u] || u;
-        i[h] = o[u];
+        var c = n[u] || u;
+        i[c] = o[u];
       }
     this.callback ? this.callback(i) : this.emit("error", i), this.state = "error";
   }, s.prototype.then = function(i, o) {
@@ -2632,31 +2632,31 @@ function An() {
     this.state = "running";
     var o = this;
     this.native = i.native, i.native.arrayMode = this._arrayMode;
-    var u = function(a, c, f) {
+    var u = function(a, h, f) {
       if (i.native.arrayMode = !1, setImmediate(function() {
         o.emit("_done");
       }), a)
         return o.handleError(a);
-      o._emitRowEvents && (f.length > 1 ? c.forEach((d, m) => {
+      o._emitRowEvents && (f.length > 1 ? h.forEach((d, m) => {
         d.forEach((y) => {
           o.emit("row", y, f[m]);
         });
-      }) : c.forEach(function(d) {
+      }) : h.forEach(function(d) {
         o.emit("row", d, f);
       })), o.state = "end", o.emit("end", f), o.callback && o.callback(null, f);
     };
     if (process.domain && (u = process.domain.bind(u)), this.name) {
       this.name.length > 63 && (console.error("Warning! Postgres only supports 63 characters for query names."), console.error("You supplied %s (%s)", this.name, this.name.length), console.error("This can cause conflicts and silent errors executing queries"));
-      var h = (this.values || []).map(t.prepareValue);
+      var c = (this.values || []).map(t.prepareValue);
       if (i.namedQueries[this.name]) {
         if (this.text && i.namedQueries[this.name] !== this.text) {
           const a = new Error(`Prepared statements must be unique - '${this.name}' was used for a different statement`);
           return u(a);
         }
-        return i.native.execute(this.name, h, u);
+        return i.native.execute(this.name, c, u);
       }
-      return i.native.prepare(this.name, this.text, h.length, function(a) {
-        return a ? u(a) : (i.namedQueries[o.name] = o.text, o.native.execute(o.name, h, u));
+      return i.native.prepare(this.name, this.text, c.length, function(a) {
+        return a ? u(a) : (i.namedQueries[o.name] = o.text, o.native.execute(o.name, c, u));
       });
     } else if (this.values) {
       if (!Array.isArray(this.values)) {
@@ -2684,41 +2684,41 @@ function xn() {
     t.call(this), u = u || {}, this._Promise = u.Promise || H.Promise, this._types = new e(u.types), this.native = new r({
       types: this._types
     }), this._queryQueue = [], this._ending = !1, this._connecting = !1, this._connected = !1, this._queryable = !0;
-    var h = this.connectionParameters = new n(u);
-    u.nativeConnectionString && (h.nativeConnectionString = u.nativeConnectionString), this.user = h.user, Object.defineProperty(this, "password", {
+    var c = this.connectionParameters = new n(u);
+    u.nativeConnectionString && (c.nativeConnectionString = u.nativeConnectionString), this.user = c.user, Object.defineProperty(this, "password", {
       configurable: !0,
       enumerable: !1,
       writable: !0,
-      value: h.password
-    }), this.database = h.database, this.host = h.host, this.port = h.port, this.namedQueries = {};
+      value: c.password
+    }), this.database = c.database, this.host = c.host, this.port = c.port, this.namedQueries = {};
   };
   return o.Query = i, s.inherits(o, t), o.prototype._errorAllQueries = function(u) {
-    const h = (l) => {
+    const c = (l) => {
       process.nextTick(() => {
         l.native = this.native, l.handleError(u);
       });
     };
-    this._hasActiveQuery() && (h(this._activeQuery), this._activeQuery = null), this._queryQueue.forEach(h), this._queryQueue.length = 0;
+    this._hasActiveQuery() && (c(this._activeQuery), this._activeQuery = null), this._queryQueue.forEach(c), this._queryQueue.length = 0;
   }, o.prototype._connect = function(u) {
-    var h = this;
+    var c = this;
     if (this._connecting) {
       process.nextTick(() => u(new Error("Client has already been connected. You cannot reuse a client.")));
       return;
     }
     this._connecting = !0, this.connectionParameters.getLibpqConnectionString(function(l, a) {
-      if (h.connectionParameters.nativeConnectionString && (a = h.connectionParameters.nativeConnectionString), l)
+      if (c.connectionParameters.nativeConnectionString && (a = c.connectionParameters.nativeConnectionString), l)
         return u(l);
-      h.native.connect(a, function(c) {
-        if (c)
-          return h.native.end(), u(c);
-        h._connected = !0, h.native.on("error", function(f) {
-          h._queryable = !1, h._errorAllQueries(f), h.emit("error", f);
-        }), h.native.on("notification", function(f) {
-          h.emit("notification", {
+      c.native.connect(a, function(h) {
+        if (h)
+          return c.native.end(), u(h);
+        c._connected = !0, c.native.on("error", function(f) {
+          c._queryable = !1, c._errorAllQueries(f), c.emit("error", f);
+        }), c.native.on("notification", function(f) {
+          c.emit("notification", {
             channel: f.relname,
             payload: f.extra
           });
-        }), h.emit("connect"), h._pulseQueryQueue(!0), u();
+        }), c.emit("connect"), c._pulseQueryQueue(!0), u();
       });
     });
   }, o.prototype.connect = function(u) {
@@ -2726,20 +2726,20 @@ function xn() {
       this._connect(u);
       return;
     }
-    return new this._Promise((h, l) => {
+    return new this._Promise((c, l) => {
       this._connect((a) => {
-        a ? l(a) : h();
+        a ? l(a) : c();
       });
     });
-  }, o.prototype.query = function(u, h, l) {
-    var a, c, f, d, m;
+  }, o.prototype.query = function(u, c, l) {
+    var a, h, f, d, m;
     if (u == null)
       throw new TypeError("Client was passed a null or undefined query");
     if (typeof u.submit == "function")
-      f = u.query_timeout || this.connectionParameters.query_timeout, c = a = u, typeof h == "function" && (u.callback = h);
-    else if (f = this.connectionParameters.query_timeout, a = new i(u, h, l), !a.callback) {
+      f = u.query_timeout || this.connectionParameters.query_timeout, h = a = u, typeof c == "function" && (u.callback = c);
+    else if (f = this.connectionParameters.query_timeout, a = new i(u, c, l), !a.callback) {
       let y, v;
-      c = new this._Promise((R, P) => {
+      h = new this._Promise((R, P) => {
         y = R, v = P;
       }).catch((R) => {
         throw Error.captureStackTrace(R), R;
@@ -2757,32 +2757,32 @@ function xn() {
       clearTimeout(d), m(y, v);
     }), this._queryable ? this._ending ? (a.native = this.native, process.nextTick(() => {
       a.handleError(new Error("Client was closed and is not queryable"));
-    }), c) : (this._queryQueue.push(a), this._pulseQueryQueue(), c) : (a.native = this.native, process.nextTick(() => {
+    }), h) : (this._queryQueue.push(a), this._pulseQueryQueue(), h) : (a.native = this.native, process.nextTick(() => {
       a.handleError(new Error("Client has encountered a connection error and is not queryable"));
-    }), c);
+    }), h);
   }, o.prototype.end = function(u) {
-    var h = this;
+    var c = this;
     this._ending = !0, this._connected || this.once("connect", this.end.bind(this, u));
     var l;
-    return u || (l = new this._Promise(function(a, c) {
-      u = (f) => f ? c(f) : a();
+    return u || (l = new this._Promise(function(a, h) {
+      u = (f) => f ? h(f) : a();
     })), this.native.end(function() {
-      h._errorAllQueries(new Error("Connection terminated")), process.nextTick(() => {
-        h.emit("end"), u && u();
+      c._errorAllQueries(new Error("Connection terminated")), process.nextTick(() => {
+        c.emit("end"), u && u();
       });
     }), l;
   }, o.prototype._hasActiveQuery = function() {
     return this._activeQuery && this._activeQuery.state !== "error" && this._activeQuery.state !== "end";
   }, o.prototype._pulseQueryQueue = function(u) {
     if (this._connected && !this._hasActiveQuery()) {
-      var h = this._queryQueue.shift();
-      if (!h) {
+      var c = this._queryQueue.shift();
+      if (!c) {
         u || this.emit("drain");
         return;
       }
-      this._activeQuery = h, h.submit(this);
+      this._activeQuery = c, c.submit(this);
       var l = this;
-      h.once("_done", function() {
+      c.once("_done", function() {
         l._pulseQueryQueue();
       });
     }
@@ -2791,10 +2791,10 @@ function xn() {
     }) : this._queryQueue.indexOf(u) !== -1 && this._queryQueue.splice(this._queryQueue.indexOf(u), 1);
   }, o.prototype.ref = function() {
   }, o.prototype.unref = function() {
-  }, o.prototype.setTypeParser = function(u, h, l) {
-    return this._types.setTypeParser(u, h, l);
-  }, o.prototype.getTypeParser = function(u, h) {
-    return this._types.getTypeParser(u, h);
+  }, o.prototype.setTypeParser = function(u, c, l) {
+    return this._types.setTypeParser(u, c, l);
+  }, o.prototype.getTypeParser = function(u, c) {
+    return this._types.getTypeParser(u, c);
   }, be.exports;
 }
 var Ee, nt;
@@ -2805,13 +2805,13 @@ var at;
 function Mt() {
   return at || (at = 1, function(r) {
     var e = Cn, t = te, s = Et, n = Pn();
-    const { DatabaseError: i } = Le, { escapeIdentifier: o, escapeLiteral: u } = re, h = (a) => class extends n {
+    const { DatabaseError: i } = Le, { escapeIdentifier: o, escapeLiteral: u } = re, c = (a) => class extends n {
       constructor(f) {
         super(f, a);
       }
     };
     var l = function(a) {
-      this.defaults = t, this.Client = a, this.Query = this.Client.Query, this.Pool = h(this.Client), this._pools = [], this.Connection = s, this.types = q, this.DatabaseError = i, this.escapeIdentifier = o, this.escapeLiteral = u;
+      this.defaults = t, this.Client = a, this.Query = this.Client.Query, this.Pool = c(this.Client), this._pools = [], this.Connection = s, this.types = q, this.DatabaseError = i, this.escapeIdentifier = o, this.escapeLiteral = u;
     };
     typeof process.env.NODE_PG_FORCE_NATIVE < "u" ? r.exports = new l(it()) : (r.exports = new l(e), Object.defineProperty(r.exports, "native", {
       configurable: !0,
@@ -2820,9 +2820,9 @@ function Mt() {
         var a = null;
         try {
           a = new l(it());
-        } catch (c) {
-          if (c.code !== "MODULE_NOT_FOUND")
-            throw c;
+        } catch (h) {
+          if (h.code !== "MODULE_NOT_FOUND")
+            throw h;
         }
         return Object.defineProperty(r.exports, "native", {
           value: a
@@ -2834,8 +2834,8 @@ function Mt() {
 var In = Mt();
 const On = /* @__PURE__ */ Dt(In), { Client: kn } = On, Ln = new kt();
 class $n {
-  constructor(e, t) {
-    this.inTransaction = !1, this.patchesDir = t, this.dbh = new kn(e);
+  constructor(e) {
+    this.inTransaction = !1, this.dbh = new kn(e);
   }
   async connect() {
     await this.dbh.connect();
@@ -2843,27 +2843,27 @@ class $n {
   async close() {
     await this.dbh.end();
   }
-  async patch(e = !0) {
+  async patch(e, t = !0) {
     await this.run("CREATE TABLE IF NOT EXISTS public.db_patches ( id TEXT PRIMARY KEY);", []);
-    const t = Ce.readdirSync(this.patchesDir), s = (await this.getMany("public.db_patches")).map((n) => n.id);
-    for (const n of t) {
-      if (s.includes(n)) {
-        e && console.info(`➡ skipping already applied db patch: ${n}`);
+    const s = Ce.readdirSync(e), n = (await this.getMany("public.db_patches")).map((i) => i.id);
+    for (const i of s) {
+      if (n.includes(i)) {
+        t && console.info(`➡ skipping already applied db patch: ${i}`);
         continue;
       }
-      const o = Ce.readFileSync(`${this.patchesDir}/${n}`, "utf-8").split(";").map((u) => u.trim()).filter((u) => !!u);
+      const u = Ce.readFileSync(`${e}/${i}`, "utf-8").split(";").map((c) => c.trim()).filter((c) => !!c);
       try {
         try {
           await this.run("BEGIN");
-          for (const u of o)
-            await this.run(u);
+          for (const c of u)
+            await this.run(c);
           await this.run("COMMIT");
-        } catch (u) {
-          throw await this.run("ROLLBACK"), u;
+        } catch (c) {
+          throw await this.run("ROLLBACK"), c;
         }
-        await this.insert("public.db_patches", { id: n }), console.info(`✓ applied db patch: ${n}`);
-      } catch (u) {
-        console.error(`✖ unable to apply patch: ${n} ${u}`);
+        await this.insert("public.db_patches", { id: i }), console.info(`✓ applied db patch: ${i}`);
+      } catch (c) {
+        console.error(`✖ unable to apply patch: ${i} ${c}`);
         return;
       }
     }
@@ -2974,8 +2974,8 @@ class $n {
     return await this._get(o, n.values);
   }
   async getMany(e, t = {}, s = [], n = { offset: -1, limit: -1 }) {
-    const i = this._buildWhere(t), o = this._buildOrderBy(s), u = this._buildLimit(n), h = "SELECT * FROM " + e + i.sql + o + u;
-    return await this._getMany(h, i.values);
+    const i = this._buildWhere(t), o = this._buildOrderBy(s), u = this._buildLimit(n), c = "SELECT * FROM " + e + i.sql + o + u;
+    return await this._getMany(c, i.values);
   }
   async count(e, t = {}) {
     const s = this._buildWhere(t), n = "SELECT COUNT(*)::int AS count FROM " + e + s.sql, i = await this._get(n, s.values);
@@ -2992,7 +2992,7 @@ class $n {
     return this.txn(async () => await this.exists(e, s) ? (await this.update(e, t, s), n === null ? 0 : (await this.get(e, s))[n]) : await this.insert(e, t, n));
   }
   async insert(e, t, s = null) {
-    const n = Object.keys(t), i = n.map((h) => t[h]);
+    const n = Object.keys(t), i = n.map((c) => t[c]);
     let o = 1, u = "INSERT INTO " + e + " (" + n.join(",") + ") VALUES (" + n.map(() => `$${o++}`).join(",") + ")";
     return s ? (u += ` RETURNING ${s}`, (await this.run(u, i)).rows[0][s]) : (await this.run(u, i), 0);
   }
@@ -3001,8 +3001,8 @@ class $n {
     if (n.length === 0)
       return;
     let i = 1;
-    const o = n.map((a) => t[a]), u = " SET " + n.map((a) => `${a} = $${i++}`).join(","), h = this._buildWhere(s, i), l = "UPDATE " + e + u + h.sql;
-    await this.run(l, [...o, ...h.values]);
+    const o = n.map((a) => t[a]), u = " SET " + n.map((a) => `${a} = $${i++}`).join(","), c = this._buildWhere(s, i), l = "UPDATE " + e + u + c.sql;
+    await this.run(l, [...o, ...c.values]);
   }
 }
 export {
