@@ -1,6 +1,6 @@
 {
   "name": "@zutatensuppe/db-postgres",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Class for working with postgres in node projects",
   "main": "./dist/db_postgres.js",
   "module": "./dist/db_postgres.mjs",
