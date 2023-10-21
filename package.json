@@ -1,0 +1,42 @@
+{
+  "name": "@zutatensuppe/db-postgres",
+  "version": "1.0.0",
+  "description": "Class for working with postgres in node projects",
+  "main": "./dist/db_postgres.js",
+  "module": "./dist/db_postgres.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/db_postgres.cjs",
+      "import": "./dist/db_postgres.mjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "build": "vite build && tsc --declaration --emitDeclarationOnly"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zutatensuppe/db-postgres.git"
+  },
+  "keywords": [
+    "db",
+    "postgres"
+  ],
+  "author": "Zutatensuppe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zutatensuppe/db-postgres/issues"
+  },
+  "homepage": "https://github.com/Zutatensuppe/db-postgres#readme",
+  "dependencies": {
+    "async-mutex": "^0.4.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.7",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vitest": "^0.34.6"
+  }
+}
