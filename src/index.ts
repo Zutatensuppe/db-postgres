@@ -36,13 +36,11 @@ type Row = Record<string, unknown>
 type DbPatchesRow = Row & { id: string }
 
 class Db {
-  patchesDir: string
   dbh: pg.Client
   inTransaction: boolean = false
 
-  constructor(connectStr: string, patchesDir: string) {
-    this.patchesDir = patchesDir
-    this.dbh = new Client(connectStr)
+  constructor(connectString: string) {
+    this.dbh = new Client(connectString)
   }
 
   async connect(): Promise<void> {
@@ -53,10 +51,13 @@ class Db {
     await this.dbh.end()
   }
 
-  async patch(verbose: boolean = true): Promise<void> {
+  async patch(
+    pathToPatchesDir: string,
+    verbose: boolean = true,
+  ): Promise<void> {
     await this.run('CREATE TABLE IF NOT EXISTS public.db_patches ( id TEXT PRIMARY KEY);', [])
 
-    const files = fs.readdirSync(this.patchesDir)
+    const files = fs.readdirSync(pathToPatchesDir)
     const patches = (await this.getMany<DbPatchesRow>('public.db_patches')).map(row => row.id)
 
     for (const f of files) {
@@ -66,7 +67,7 @@ class Db {
         }
         continue
       }
-      const contents = fs.readFileSync(`${this.patchesDir}/${f}`, 'utf-8')
+      const contents = fs.readFileSync(`${pathToPatchesDir}/${f}`, 'utf-8')
 
       const all = contents.split(';').map(s => s.trim()).filter(s => !!s)
       try {
